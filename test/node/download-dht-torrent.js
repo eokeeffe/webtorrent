@@ -34,13 +34,13 @@ test('Download using DHT (via .torrent file)', function (t) {
       client1.on('error', function (err) { t.fail(err) })
       client1.on('warning', function (err) { t.fail(err) })
 
-      var torrent = client1.add(fixtures.leaves.parsedTorrent, {store: MemoryChunkStore})
+      var torrent = client1.add(fixtures.leaves.parsedTorrent, { store: MemoryChunkStore })
 
       torrent.on('ready', function () {
         // torrent metadata has been fetched -- sanity check it
         t.equal(torrent.name, 'Leaves of Grass by Walt Whitman.epub')
 
-        var names = [ 'Leaves of Grass by Walt Whitman.epub' ]
+        var names = ['Leaves of Grass by Walt Whitman.epub']
         t.deepEqual(torrent.files.map(function (file) { return file.name }), names)
       })
 
@@ -100,7 +100,7 @@ test('Download using DHT (via .torrent file)', function (t) {
         }
       })
 
-      client2.add(fixtures.leaves.parsedTorrent, {store: MemoryChunkStore})
+      client2.add(fixtures.leaves.parsedTorrent, { store: MemoryChunkStore })
     }
   ], function (err) {
     t.error(err)

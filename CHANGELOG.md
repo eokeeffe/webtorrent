@@ -1,5 +1,314 @@
 # WebTorrent Version History
 
+## v0.107.13 - 2019-09-10
+
+- Added tests to check the order of torrent events
+
+## v0.107.12 - 2019-09-08
+
+- Fixed how first piece's irrelevant bytes are calculated
+
+## v0.107.11 - 2019-09-07
+
+- Added timeout option for `requestIdlecallback` to prevent longer delays in download
+
+## v0.107.10 - 2019-09-07
+
+- Server now uses relative urls
+
+## v0.107.9 - 2019-09-07
+
+- Added a check in case user destroys torrent in response to `metadata` event
+
+## v0.107.8 - 2019-09-07
+
+- Fixed the torrent event emission order; now `metadata` is emitted before `ready` and `done`
+
+## v0.107.7 - 2019-09-06
+
+- Updated to simple-sha1@3
+- Updated jsdelivr urls to use latest Webtorrent
+
+## v0.107.6 - 2019-08-28
+
+- Fixed XSS vulnerability in the http Server ([issue](https://github.com/brave/brave-browser/issues/5821))
+
+## v0.107.5 - 2019-08-22
+
+- No meaningful changes
+
+## v0.107.4 - 2019-08-19
+
+- Added api documentation for some torrent properties
+- Bug fix: trackers now recieve 0 while seeding file instead of the file size
+- Updated org-wide security policies and contributing guidelines
+
+## v0.107.3 - 2019-08-10
+
+- No meaningful changes
+
+## v0.107.2 - 2019-08-09
+
+- Scripts are now more verbose
+
+## v0.107.1 - 2019-08-09
+
+- Updated to stream-to-bolob-url@3
+- Added `chromeapp` field to package.json for specifying Chrome App dependency substitutions
+
+## v0.107.0 - 2019-08-07
+
+- Smaller build with tinify
+- Added size-disc script to visualize bundle
+
+## v0.106.0 - 2019-08-05
+
+- Updated to electron@6
+- Dropped support for node versions < 10
+
+## v0.105.3 - 2019-08-02
+
+- Now uses 'application/octet-stream' mimetype as fallback instead of null
+
+## v0.105.2 - 2019-07-31
+
+- Fixed server `hostname` option to mitigate DNS rebinding attack ([issue](https://github.com/webtorrent/webtorrent/pull/1678))
+
+## v0.105.1 - 2019-07-24
+
+- Bug fixed: Video streaming is now fixed in Brave nightly and chromium nightly ([issue](https://github.com/brave/brave-browser/issues/5358))
+
+## v0.105.0 - 2019-07-06
+
+- Updated to parse-torrent@7
+- Added manual verification for torrent files
+
+## v0.104.0 - 2019-06-29
+
+- Updated to chunk-store-stream@4
+- Updated to multistream@3
+- Updated to create-torrent@4
+- Dropped support for node versions < 8
+
+## v0.103.4 - 2019-06-19
+
+- No meaningful changes
+
+## v0.103.3 - 2019-06-19
+
+- Updated to electron@5
+
+## v0.103.2 - 2019-06-12
+
+- Added the ability to close and restore streaming server
+
+## v0.103.1 - 2019-03-11
+
+- Updated to electron@4
+- Bug fixed: File progress is no longer shown in negative
+
+## v0.103.0 - 2018-12-11
+
+- No longer verifies file hashes passed to seed
+- No longer calls torrent.load() when seeding FS filepath
+- Reduced download impact on slower computers: now download chunks at a lower priority ([rationale](https://github.com/webtorrent/webtorrent/pull/1513))
+
+## v0.102.4 - 2018-08-31
+
+- No meaningful changes
+
+## v0.102.3 - 2018-08-31
+
+- Removed xtend
+- Removed the concurrency limit in browser
+- Reduced installtion size by removing zero-fill
+- Updated to bittorrent-dht@9
+
+## v0.102.2 - 2018-08-28
+
+- Update some webtorrent packages to ES6 ([webtorrent/#1443](https://github.com/webtorrent/webtorrent/issues/1443))
+
+## v0.102.1 - 2018-08-10
+
+- No meaningful changes
+
+## v0.102.0 - 2018-08-04
+
+- Updated to chunk-store-stream@3
+- Updated to immediate-chunk-store@2
+
+## v0.101.2 - 2018-07-27
+
+- Updated to torrent-discovery@9.0.2
+
+## v0.101.1 - 2018-07-27
+
+- Updated to bittorrent-protocol@3
+- Optimized peers:  peers now start as uninterested and only move to interested if/once they have a piece that we need  ([webtorrent/#1059](https://github.com/webtorrent/webtorrent/issues/1059))
+
+## v0.101.0 - 2018-07-19
+
+- No meaningful changes
+
+## v0.100.0 - 2018-05-23
+
+- Implemented BEP53 to alow file selection using `select only` parameter in MagnetURIs ([webtorrent/#1395](https://github.com/webtorrent/webtorrent-hybrid/issues/1395))
+
+## v0.99.4 - 2018-05-03
+
+- Use updated `babel-minify` minifier instead of deprecated `babili`
+
+## v0.99.3 - 2018-04-26
+
+- Add extra check to prevent invalid `peer.conn.remotePort` from being used ([webtorrent-hybrid/#76](https://github.com/webtorrent/webtorrent-hybrid/issues/76))
+
+## v0.99.2 - 2018-04-24
+
+- Use `.npmignore` to prevent unneeded files from being included in the published package
+
+## v0.99.1 - 2018-04-24
+
+- Expose `WebTorrent.VERSION` (#1358)
+- Update to simple-get@3
+- Update to parse-torrent@6
+
+## v0.99.0 - 2018-04-19
+
+- `renderTo()`/`appendTo()` does not autoplay by default anymore ([rationale](https://github.com/webtorrent/webtorrent/commit/fbbffbbb445096a909c851cdc4ca15204b9952b9))
+  - Pass `{autoplay: true}` to `renderTo()`/`appendTo()` to get the old behavior.
+- `renderTo()`/`appendTo()` has a new `muted` option to mute the video by default.
+
+## v0.98.24 - 2018-03-02
+
+- Add hostname option to mitigate DNS rebinding (#1260)
+- Update to simple-peer@9
+- Browser testing: switch from `zuul` to `airtap`
+
+## v0.98.23 - 2018-02-20
+
+- Update to bitfield@2
+
+## v0.98.22 - 2018-02-17
+
+- Update to browserify@16
+- Update to bittorrent-dht@8
+- Update to pump@3
+
+## v0.98.21 - 2018-01-26
+
+- Update to pump@2
+- Update to mime@2
+- Update to cross-spawn@6
+- Update to browserify@15
+
+## v0.98.20 - 2017-10-17
+
+- Fix `file.downloaded` for last piece
+- Fix destroyed torrent debug
+- Update to mime@2
+- Update to debug@3
+- Update to electron@1
+
+## v0.98.19 - 2017-06-25
+
+- Add `origin` option for torrent.createServer() (#1096)
+- Add `file.progress` property (#1140)
+- Switch to ES6-compatible minifier
+
+## v0.98.18 - 2017-04-14
+
+- Transfer webtorrent from @feross to @webtorrent organization.
+
+## v0.98.17 - 2017-04-13
+
+- Fix uncaught exception (#1103)
+
+## v0.98.16 - 2017-04-07
+
+- Update to simple-peer@8
+
+## v0.98.15 - 2017-03-30
+
+- No meaningful changes
+
+## v0.98.14 - 2017-03-17
+
+- Add filename to URLs on server index page (#1078)
+
+## v0.98.13 - 2017-03-16
+
+- No meaningful changes
+
+## v0.98.12 - 2017-03-13
+
+- Fix files under 16Kb are not downloaded correctly (#1077)
+
+## v0.98.11 - 2017-03-13
+
+- Fix detection of seeding peers (#1076)
+
+## v0.98.10 - 2017-03-06
+
+- Update to bittorrent-tracker@9
+
+## v0.98.9 - 2017-03-01
+
+- Update to finalhandler@1
+- Update to simple-peer@7
+
+## v0.98.8 - 2017-02-13
+
+- wait to notify() or updateInterest() at end of GC (#1044)
+- Update to cross-spawn@5
+
+## v0.98.7 - 2017-02-11
+
+- Change os.tmpDir() to os.tmpdir() (#1043)
+
+## v0.98.6 - 2017-02-09
+
+- Refactor http server; support content-disposition (#1039)
+
+## v0.98.5 - 2017-02-02
+
+- Don't print debug log after torrent is destroyed
+
+## v0.98.4 - 2017-02-02
+
+- Be more defensive: prevent code from running after destroy
+- Fix "Cannot read property 'complete' of null" (#1022)
+- Include infoHash in torrent.js debug logs
+- Update to browserify@14
+
+## v0.98.3 - 2017-01-19
+
+- Emit more warnings (#1021)
+- Set user-agent header for http tracker requests (#1019)
+
+## v0.98.2 - 2017-01-18
+
+- Don't send 'completed' event to tracker on client.seed (#991)
+- Set user-agent header for http tracker requests (#962)
+
+## v0.98.1 - 2017-01-13
+
+- Don't emit 'completed' on client.seed
+- Do not choke on web seeds (#972)
+
+## v0.98.0 - 2016-11-23
+
+- Add property for downloaded bytes per file (`file.downloaded`) (#974)
+- Cross-origin HTTP redirect workaround for web seeds (#909)
+
+## v0.97.2 - 2016-09-26
+
+- Creating a WebTorrent client with the `{tracker: false}` to disable communication with trackers should not affect creating a torrent with `.seed()`. The resulting torrent file should still contain the normal `announce` field. (#928)
+- Add more peer ID entropy
+
+## v0.97.1 - 2016-09-17
+
+- Handle invalid range handers instead of throwing (#921)
+
 ## v0.97.0 - 2016-09-17
 
 - Add option to disable BEP19 web seeds (`webSeeds` option to the `WebTorrent` constructor)
@@ -120,7 +429,7 @@
 
 ## v0.91.4 - 2016-05-05
 
-- Fix exception: "peer._destroy is not a function" when calling `torrent.pause()`
+- Fix exception: "peer.\_destroy is not a function" when calling `torrent.pause()`
 
 ## v0.91.3 - 2016-05-04
 
